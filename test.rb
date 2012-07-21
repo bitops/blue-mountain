@@ -1,4 +1,4 @@
-require File.expand_path(File.join(File.dirname(__FILE__), "linky_list"))
+require File.expand_path(File.join(File.dirname(__FILE__), "linked_list"))
 
 def test_with(n)
   l = Linky::List.new
