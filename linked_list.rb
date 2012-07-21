@@ -17,38 +17,32 @@ module Linked
     end
 
     def <<(value)
-      n = node(value)
+      c = cell(value)
       if first_insertion?
-        @head = n
+        @head = c
       else
-        @tail.next = n
+        @tail.next = c
       end
-      @tail = n
+      @tail = c
       @size += 1
       value
     end
 
-    def [](n)
-      nth(n).value
+    def [](i)
+      nth(i).value
     end
 
-    def []=(n, val)
-      nth(n).value = val
+    def []=(i, val)
+      nth(i).value = val
     end
 
     def each
-      count = 0
-      cell = @head
-      while(count < @size) do
-        yield cell.value
-        cell = cell.next
-        count += 1
-      end
+      each_cell {|cell| yield(cell.value)}
     end
 
     def map
       list = Linked::List.new
-      self.each {|cell| list << yield(cell)}
+      self.each {|value| list << yield(value)}
       list
     end
 
@@ -65,8 +59,18 @@ module Linked
       @size.zero?
     end
 
-    def node(value)
+    def cell(value)
       Linked::Cell.new(value)
+    end
+
+    def each_cell
+      count = 0
+      cell = @head
+      while(count < @size) do
+        yield cell
+        cell = cell.next
+        count += 1
+      end
     end
 
     def nth(n)
