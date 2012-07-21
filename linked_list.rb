@@ -32,17 +32,21 @@ module Linked
     end
 
     def [](n)
-      raise "OutOfBounds" if n > @size
       nth(n).value
     end
 
     def []=(n, val)
-      raise "OutOfBounds" if n > @size
       nth(n).value = val
     end
 
     def each
-      iter(@head) {|cell| yield cell}
+      count = 0
+      cell = @head
+      while(count < @size) do
+        yield cell.value
+        cell = cell.next
+        count += 1
+      end
     end
 
     def map
@@ -64,14 +68,9 @@ module Linked
       Linked::Cell.new(value)
     end
 
-    def iter(cell, &block)
-      yield cell.value
-      if cell.next
-        iter(cell.next, &block) 
-      end
-    end
-
     def nth(n)
+      raise "OutOfBounds" if n > @size
+
       count = 0
       curr = @head
       while(count != n) do
