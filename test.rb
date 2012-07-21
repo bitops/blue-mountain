@@ -1,7 +1,7 @@
 require File.expand_path(File.join(File.dirname(__FILE__), "linked_list"))
 
 def test_with(n)
-  l = Linky::List.new
+  l = Linked::List.new
   (1..n).each {|i| l << i}
   # l.each {|i| puts i}
 end

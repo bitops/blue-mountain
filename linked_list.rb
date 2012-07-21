@@ -1,4 +1,4 @@
-module Linky
+module Linked
 
   class Cell
     attr_accessor :value, :next
@@ -46,7 +46,7 @@ module Linky
     end
 
     def map
-      list = Linky::List.new
+      list = Linked::List.new
       self.each {|cell| list << yield(cell)}
       list
     end
@@ -61,7 +61,7 @@ module Linky
 
     private
     def node(value)
-      Linky::Cell.new(value)
+      Linked::Cell.new(value)
     end
 
     def iter(cell, &block)
