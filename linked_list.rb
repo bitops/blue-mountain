@@ -13,20 +13,17 @@ module Linked
     attr_reader :head, :tail, :size
 
     def initialize
-      @head = nil
-      @tail = @head
       @size = 0
     end
 
     def <<(value)
       n = node(value)
-      if @size.zero?
+      if first_insertion?
         @head = n
-        @tail = @head
       else
         @tail.next = n
-        @tail = n
       end
+      @tail = n
       @size += 1
       value
     end
@@ -64,6 +61,10 @@ module Linked
     end
 
     private
+    def first_insertion?
+      @size.zero?
+    end
+
     def node(value)
       Linked::Cell.new(value)
     end
