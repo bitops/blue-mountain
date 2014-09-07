@@ -1,4 +1,4 @@
-require './linked_list.rb'
+require File.expand_path(File.join(__dir__, 'linked_list.rb'))
 
 class LinkedListStack
   def initialize
@@ -14,7 +14,7 @@ class LinkedListStack
   end
   
   def peek
-    
+    @values.tail.value
   end
   
   def empty?
