@@ -1,8 +1,6 @@
 module Linked
 
-  # TODO: refactor to new name Node
-
-  class Cell
+  class Node
     attr_accessor :value, :next
 
     def initialize(value)
@@ -64,7 +62,7 @@ module Linked
     end
 
     def cell(value)
-      Linked::Cell.new(value)
+      Linked::Node.new(value)
     end
 
     def each_cell
