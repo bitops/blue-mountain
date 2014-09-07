@@ -9,10 +9,18 @@ class Stack
   end
 
   def pop
-    @values.delete_at(@values.length - 1)
+    unless @values.empty?
+      @values.delete_at(@values.length - 1)
+    else
+      nil
+    end
   end
 
   def peek
     @values.last
+  end
+
+  def empty?  
+    @values.empty?
   end
 end
