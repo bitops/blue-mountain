@@ -1,4 +1,4 @@
-class Stack
+class ArrayStack
   def initialize
     @values = []
   end
