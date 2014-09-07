@@ -11,4 +11,8 @@ class Stack
   def pop
     @values.delete_at(@values.length - 1)
   end
+
+  def peek
+    @values.last
+  end
 end
