@@ -9,7 +9,7 @@ class ArrayStack
   end
 
   def pop
-    unless @values.empty?
+    unless empty?
       @values.delete_at(@values.length - 1)
     else
       nil
