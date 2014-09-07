@@ -1,5 +1,7 @@
 module Linked
 
+  # TODO: refactor to new name Node
+
   class Cell
     attr_accessor :value, :next
 
@@ -8,6 +10,8 @@ module Linked
       @next = nil
     end
   end
+
+  # TODO: refactor so that head is most recently inserted element
 
   class List
     attr_reader :head, :tail, :size
