@@ -1,9 +1,9 @@
-require File.expand_path(File.join(__dir__, 'linked_list.rb'))
+require File.expand_path(File.join(__dir__, 'singly_linked_list.rb'))
 
 class Stack
 
   def initialize
-    @linked_list = Linked::List.new
+    @linked_list = SinglyLinkedList.new
   end
   
   def push(value)  
