@@ -13,8 +13,10 @@ describe Linked::List do
       ll = Linked::List.new
       ll << 42
       ll << 88
+      expect(ll.size).to eq(2)
       expect(ll.head.value).to eq(88)
       popped = ll.shift
+      expect(ll.size).to eq(1)
       expect(popped).to eq(88)
       expect(ll.head.value).to eq(42)
     end

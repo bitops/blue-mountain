@@ -32,6 +32,7 @@ module Linked
       new_head = @head.next
       old_head = @head.value
       @head = new_head
+      @size -= 1
       old_head
     end
 
