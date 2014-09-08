@@ -1,4 +1,5 @@
 TODO:
 =====
-* add Gemfile
-* add unit tests
+* doubly linked list
+* circular list
+
