@@ -9,8 +9,6 @@ module Linked
     end
   end
 
-  # TODO: refactor so that head is most recently inserted element
-
   class List
     attr_reader :head, :tail, :size
 
@@ -21,39 +19,24 @@ module Linked
     def <<(value)
       c = cell(value)
       if first_insertion?
-        @head = c
-      else
-        @tail.next = c
+        @tail = c 
       end
-      @tail = c
+      old_head = @head
+      @head = c
+      @head.next = old_head
       @size += 1
       value
     end
 
-    def [](i)
-      nth(i).value
-    end
-
-    def []=(i, val)
-      nth(i).value = val
+    def shift
+      new_head = @head.next
+      old_head = @head.value
+      @head = new_head
+      old_head
     end
 
     def each
       each_cell {|cell| yield(cell.value)}
-    end
-
-    def map
-      list = Linked::List.new
-      self.each {|value| list << yield(value)}
-      list
-    end
-
-    def first
-      @head.value
-    end
-    
-    def last
-      @tail.value
     end
 
     private
@@ -66,26 +49,12 @@ module Linked
     end
 
     def each_cell
-      count = 0
       cell = @head
-      while(count < @size) do
+      while(true) do
         yield cell
+        break if cell.next.nil?
         cell = cell.next
-        count += 1
       end
-    end
-
-    def nth(n)
-      raise "OutOfBounds" if n > @size
-
-      count = 0
-      curr = @head
-      while(count != n) do
-        curr = curr.next
-        count += 1
-      end
-      curr
     end
   end
-
 end
