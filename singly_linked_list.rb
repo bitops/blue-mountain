@@ -20,11 +20,10 @@ class SinglyLinkedList
   end
   
   def shift
-    new_head = @head.next
-    old_head = @head.value
-    @head = new_head
+    old_head_value = @head.value
+    @head = @head.next
     @size -= 1
-    old_head
+    old_head_value
   end
   
   def each
