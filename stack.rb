@@ -1,7 +1,6 @@
 require File.expand_path(File.join(__dir__, 'singly_linked_list.rb'))
 
 class Stack
-
   def initialize
     @linked_list = SinglyLinkedList.new
   end
@@ -12,11 +11,7 @@ class Stack
   end
   
   def pop
-    unless empty?
-      @linked_list.shift
-    else
-      nil
-    end
+    @linked_list.shift
   end
   
   def peek

@@ -11,5 +11,6 @@ describe Stack do
     expect(s.pop).to eq(42)
     expect(s.empty?).to eq(true)
     expect(s.peek).to eq(nil)
+    expect(s.pop).to eq(nil)
   end
 end
