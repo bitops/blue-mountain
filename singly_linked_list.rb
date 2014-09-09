@@ -27,6 +27,7 @@ class SinglyLinkedList
       @tail.next = c
     end
     @tail = c
+    @tail.next = nil
     incr
     value
   end
