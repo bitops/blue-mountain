@@ -7,7 +7,7 @@ class Stack
   end
   
   def push(value)  
-    @linked_list << value
+    @linked_list.append_head value
     value
   end
   
