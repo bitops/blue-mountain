@@ -7,7 +7,6 @@ class Queue
   
   def enqueue(value)  
     @linked_list.append_tail value
-    value
   end
   
   def dequeue
