@@ -7,7 +7,6 @@ class Stack
   
   def push(value)  
     @linked_list.append_head value
-    value
   end
   
   def pop
