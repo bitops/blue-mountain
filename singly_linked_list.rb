@@ -49,13 +49,16 @@ class SinglyLinkedList
     return nil if empty_list?
     return shift if single_element_list?
     
+    value = nil
     each_node do |c|
       if c.next.next.nil?
+        value = @tail.value
         @tail = c
         @tail.next = nil
         break
       end
     end
+    value
   end
   
   def each

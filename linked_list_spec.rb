@@ -40,6 +40,15 @@ describe SinglyLinkedList do
       expect(ll.empty_list?).to eq(true)
     end
 
+    it "pop with multi element list" do
+      ll = SinglyLinkedList.new
+      ll.append_head 42
+      ll.append_head 88
+      expect(ll.head.value).to eq(88)
+      expect(ll.tail.value).to eq(42)
+      expect(ll.pop).to eq(42)
+    end
+
     it "shift with empty list" do
       ll = SinglyLinkedList.new
       expect(ll.empty_list?).to eq(true)
